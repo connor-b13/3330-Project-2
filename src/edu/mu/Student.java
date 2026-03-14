@@ -24,7 +24,7 @@ public class Student {
 			throw IllegalArgumentException("Name cannot be empty"):
 		}
 		else {
-			return this.points += amount;
+			this.points += amount;
 		}
 	
 	public getPoints{
@@ -56,6 +56,8 @@ public class Student {
 		else if(Name == null || getClass() != Name.getClass()) {
 			return false;
 		}
+		Student student = (Student) Name; // creates an instance of student and binds it to Name
+		return Objects.equals(name, student.name) // returns duplicates
 	}
 }
 
