@@ -38,13 +38,13 @@ public class Student {
 	// finding the student:
 	@Override
 	public int hashCode() {
-		return Objects.hash(name)
+		return Objects.hash(name);
 	}
 	
 	// convert the student to a string:
 	@Override
 	public toString() {
-		return "Student Name: " + name + "Student Points" + points
+		return "Student Name: " + name + "Student Points" + points;
 	}
 	
 	// hash code to check for duplicates
