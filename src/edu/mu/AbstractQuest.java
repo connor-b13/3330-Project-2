@@ -10,7 +10,9 @@ public abstract class AbstractQuest implements Quest {
 	
 	private boolean isCompleted = false;
 	
-	AbstractQuest(int id, String title, int basePoints){
+	
+	//constructor with invariant validations.
+	public AbstractQuest(int id, String title, int basePoints){
 		if(id<=0) {
 			throw new IllegalArgumentException("ID must be greater than 0");
 		}
@@ -27,7 +29,7 @@ public abstract class AbstractQuest implements Quest {
 		this.title=title;
 		this.basePoints=basePoints;
 	}
-	
+	//Basic getters
 	@Override
 	public int getId() {
 		return id;
@@ -47,6 +49,8 @@ public abstract class AbstractQuest implements Quest {
 	public boolean isCompleted() {
 		return isCompleted;
 	}
+	
+	//Base for setting quest completion, implementation should be overwritten in subclasses
 	
 	@Override
 	public int completeFor(Student s) {
