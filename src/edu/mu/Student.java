@@ -9,7 +9,7 @@ public class Student {
 	// constructor for name, getter and setter
 	public Student(String name) {
 		if(name == null) {
-			throw IllegalArgumentException("Name cannot be empty.");
+			throw new IllegalArgumentException("Name cannot be empty.");
 		}
 		this.name = name;
 		this.points = 0;
@@ -21,7 +21,7 @@ public class Student {
 	// getter to add points
 	public addPoints{
 		if(points < 0 || points.isEmpty()) {
-			throw IllegalArgumentException("Name cannot be empty"):
+			throw new IllegalArgumentException("Name cannot be empty"):
 		}
 		else {
 			this.points += amount;
