@@ -40,7 +40,7 @@ public class Main {
 		// complete 3 quests across 3 different types.
 		questBoard.completeQuest(s1, 01);
 		questBoard.completeQuest(s3, 03);
-		questBoard.completeQuest(s1, 05);
+		questBoard.completeQuest(s3, 05);
 		
 		questBoard.printAssignmentsFor(s1);
 		questBoard.printAssignmentsFor(s3);

@@ -46,8 +46,8 @@ public class QuestBoard {
 		Quest studentQuest = questsById.get(questId);
 		List<Quest> studentList = assignments.get(s);
 		
-		if (studentList.isEmpty()) {
-			studentList = new ArrayList<Quest>(List.of(studentQuest));
+		if (studentList == null || studentList.isEmpty()) {
+			studentList = new ArrayList<Quest>();
 		} else if (studentList.contains(studentQuest)) {
 			// Design Choice: Quests can only be assigned once
 			throw new IllegalArgumentException("Student cannot be assigned the same quest multiple times.");
@@ -64,26 +64,30 @@ public class QuestBoard {
 	 * @return the amount of points earned
 	 */
 	public int completeQuest(Student s, int questId) {		
+		if (s == null) {
+			throw new IllegalArgumentException("Student must not be null!");
+		}
+		
 		List<Quest> studentList = assignments.get(s);
 		
-		if (studentList.isEmpty()) {
+		if (studentList == null || studentList.isEmpty()) {
 			throw new IllegalArgumentException("Student does not have any quests!");
 		}
 		
-		Quest studentQuest = studentList.get(questId);
-		
-		if (studentQuest == null) {
-			throw new IllegalArgumentException("No quest with that ID is assigned to the student");
+		for (Quest q : studentList) {
+			if (q.getId() == questId) {
+				return q.completeFor(s);
+			}
 		}
 		
-		return studentQuest.completeFor(s);
+		throw new IllegalArgumentException("No quest with that ID is assigned to a student");
 	}
 	
 	/**
 	 * Prints all the quests on the board
 	 */
 	public void printAllQuests() {
-		System.out.println("List of Quest:");
+		System.out.println("List of Quests:");
 		System.out.println("-------------------");
 		
 		questsById.forEach((id, quest) -> {

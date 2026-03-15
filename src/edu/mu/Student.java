@@ -37,7 +37,7 @@ public class Student {
 	// convert the student to a string:
 	@Override
 	public String toString() {
-		return "Studen name:" + name + "Points:" + points;
+		return "Student name: " + name + " Points: " + points;
 	}
 
 	
