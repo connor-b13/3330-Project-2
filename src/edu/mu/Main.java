@@ -7,9 +7,15 @@ public class Main {
 		Student s1 = new Student("Trent", 24);
 		Student s2 = new Student("Trent", 21);
 		Student s3 = new Student("Jack", 19);
-		System.out.println(s1);
-		System.out.println(s2);
-		System.out.println(s3);
+
+		// Hash set implementation
+		HashSet<Student> studentSet = new HashSet<Student>();
+		studentSet.add(s1);
+		studentSet.add(s2);
+		studentSet.add(s3);
+
+		// Output a lack of duplicates to the console
+		System.out.println(studentSet);
 		
 		// create 2 of each quest type, including duplicate ID
 		EventCheckInQuest eci1 = new EventCheckInQuest(01, "eci1", 3, "Career Fair");
