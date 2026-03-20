@@ -30,32 +30,43 @@ public abstract class AbstractQuest implements Quest {
 		this.basePoints=basePoints;
 	}
 	//Basic getters
+
 	@Override
 	public int getId() {
 		return id;
 	}
-	
+
 	@Override
 	public String getTitle() {
 		return title;
 	}
-	
+
 	@Override
 	public int getBasePoints() {
 		return basePoints;
 	}
-	
+
 	@Override
 	public boolean isCompleted() {
 		return isCompleted;
 	}
+
+	public void markCompleted() {
+		if(this.isCompleted!=false) {
+			throw new IllegalArgumentException("This quest has already been completed");
+		}
+		this.isCompleted = true;
+	}
 	
 	//Base for setting quest completion, implementation should be overwritten in subclasses
-	
+	/**
+	 * @param s the student to be assigned points
+	 * @return points assigned to student s
+	 */
 	@Override
 	public int completeFor(Student s) {
 		s.addPoints(basePoints);
-		isCompleted=true;
+		this.markCompleted();
 		return basePoints;
 	}
 }

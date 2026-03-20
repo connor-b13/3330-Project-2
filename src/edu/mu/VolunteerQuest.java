@@ -14,12 +14,16 @@ public class VolunteerQuest extends AbstractQuest {
 	}
 
 	//overrides method to add points multiplied by volunteer hours
+	/**
+	 * @param s the student to be assigned points
+	 * @return points assigned to student s (base points * hours)
+	 */
 	@Override
 	public int completeFor(Student s) {
 		int finalPoints = getBasePoints()*hours;
 		
 		s.addPoints(finalPoints);
-		
+		this.markCompleted();
 		return finalPoints;
 	}
 }

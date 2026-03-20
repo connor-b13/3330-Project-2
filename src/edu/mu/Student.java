@@ -26,6 +26,9 @@ public class Student {
 	}
 	// adds points to current total
 	public void addPoints(int pts){
+		if(pts<=0) {
+			throw new IllegalArgumentException("Cannot add 0 or less points");
+		}
 		points += pts;
 		}
 	

@@ -1,7 +1,7 @@
 package edu.mu;
 
 public class StreakQuest extends AbstractQuest{
-
+	
 	private int days;
 	
 	//constructs special subclass with new field and invariant validation
@@ -17,12 +17,16 @@ public class StreakQuest extends AbstractQuest{
 	
 	
 	//overrides method to add points based off days (2x days + base points)
+	
+	/**
+	 * @param s the student to be assigned points
+	 * @return points assigned to student s (2x days + base points)
+	 */
 	@Override
 	public int completeFor(Student s) {
 		int finalPoints = getBasePoints() + 2*days;
-		
 		s.addPoints(finalPoints);
-		
+		this.markCompleted();
 		return finalPoints;
 	}
 	
